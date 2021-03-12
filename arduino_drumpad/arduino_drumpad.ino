@@ -20,7 +20,7 @@ int readPin = A0;//read drumpad through A0 pin
 
 int val;
 int threshold = 400;//about 2V
-
+int d=30;//delay between hits
 
 void setup() {
   
@@ -49,6 +49,7 @@ void loop() {
 //sends the MIDI message that the drum was hit
 void hit(){
   noteOn(MIDI_CHANNEL,NOTE,127);
+  delay(d);
   noteOff(MIDI_CHANNEL,NOTE);
   val=0;
 }
